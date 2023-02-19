@@ -24,6 +24,9 @@ class HomeBody extends StatelessWidget {
           children: [
             Expanded(
               child: GestureDetector(
+                onTap: (){
+                  Navigator.of(context).pushNamed("/translateTextToSign");
+                },
                 child: Image.asset("lib/assets/images/tstt.png"),
               ),
             ),
