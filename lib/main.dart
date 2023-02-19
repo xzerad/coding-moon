@@ -19,13 +19,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
-        textTheme: TextTheme(
-          displaySmall: TextStyle(color: Colors.grey)
-        ),
+        textTheme: const TextTheme(
+          displaySmall: TextStyle(color: Colors.grey, fontSize: 14),
+          displayMedium: TextStyle(color: Colors.white, fontSize: 16)
+
+      ),
+
         scaffoldBackgroundColor: Colors.black
       ),
       routes: routes,
-      initialRoute: "/splash",
+      initialRoute: "/signIn",
     );
   }
 }
