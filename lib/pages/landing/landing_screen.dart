@@ -120,10 +120,14 @@ class _LandingScreenState extends State<LandingScreen> with TickerProviderStateM
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Row(
-                            children: const [
-                              Expanded(child: CustomButton(text: "Sign In", backgroundColor: Colors.black, foregroundColor: Colors.white)),
-                              SizedBox(width: 15,),
-                              Expanded(child: CustomButton(text: "Register", backgroundColor: Colors.white, foregroundColor: Colors.black)),
+                            children: [
+                              Expanded(child: CustomButton(text: "Sign In", backgroundColor: Colors.black, foregroundColor: Colors.white, onPress: (){
+                                Navigator.of(context).pushNamed("/signIn");
+                              },)),
+                              const SizedBox(width: 15,),
+                              Expanded(child: CustomButton(text: "Register", backgroundColor: Colors.white, foregroundColor: Colors.black, onPress: (){
+                                Navigator.of(context).pushNamed("/signUp");
+                              })),
 
                             ],
                           ),

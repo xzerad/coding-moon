@@ -24,11 +24,10 @@ class TranslateSignToTextBody extends StatefulWidget {
 class _TranslateSignToTextBodyState extends State<TranslateSignToTextBody> {
 
   CameraController? controller;
-
-  @override
-  void initState() {
+  bool frontCamera = false;
+  void setCamera(){
     availableCameras().then((cameras){
-      controller = CameraController(cameras[0], ResolutionPreset.max);
+      controller = CameraController(cameras[frontCamera?1:0], ResolutionPreset.max);
       controller?.initialize().then((_) {
         if (!mounted) {
           return;
@@ -47,6 +46,11 @@ class _TranslateSignToTextBodyState extends State<TranslateSignToTextBody> {
         }
       });
     });
+
+  }
+  @override
+  void initState() {
+    setCamera();
     super.initState();
   }
   @override
@@ -74,11 +78,15 @@ class _TranslateSignToTextBodyState extends State<TranslateSignToTextBody> {
             child: SizedBox(
               width: size.width,
               child: Padding(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Cancel", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),),
+                    GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushReplacementNamed("/home");
+                        },
+                        child:const SizedBox(child: Text("Cancel", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),))),
                     Container(
                       height: 50,
                       width: 50,
@@ -89,7 +97,16 @@ class _TranslateSignToTextBodyState extends State<TranslateSignToTextBody> {
                       ),
                       child: const CircleAvatar(backgroundColor: Colors.white, radius: 20,),
                     ),
-                    Icon(Icons.cameraswitch, color: Colors.white, size: 30,)
+                    GestureDetector(
+                        onTap: (){
+
+                          setState(() {
+                            controller?.dispose();
+                            frontCamera = false;
+                          });
+                          setCamera();
+                        },
+                        child: const Icon(Icons.cameraswitch, color: Colors.white, size: 30,))
                   ],
                 ),
               ),

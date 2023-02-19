@@ -1,4 +1,6 @@
 import 'package:disiability/pages/auth/signin_screen/sigin_screen.dart';
+import 'package:disiability/pages/auth/signup_screen/signup_screen.dart';
+
 import 'package:disiability/pages/home/home_screen.dart';
 import 'package:disiability/pages/landing/landing_screen.dart';
 import 'package:disiability/pages/splash/splash_screen.dart';
@@ -10,5 +12,7 @@ Map<String, Widget Function(BuildContext)> routes = {
   "/landing": (context)=> const LandingScreen(),
   "/home": (context) =>const HomeScreen(),
   "/translateSignToText": (context)=> const TranslateSignToText(),
-  "/signIn": (context)=> const SignIn()
+  "/signIn": (context)=> const SignIn(),
+  "/signUp": (context)=> const SignUP()
+
 };

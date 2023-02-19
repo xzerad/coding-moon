@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black
       ),
       routes: routes,
-      initialRoute: "/signIn",
+      initialRoute: "/splash",
     );
   }
 }
