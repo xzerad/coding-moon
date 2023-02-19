@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black
       ),
       routes: routes,
-      initialRoute: "/translateSignToText",
+      initialRoute: "/splash",
     );
   }
 }

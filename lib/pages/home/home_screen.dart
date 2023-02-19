@@ -16,21 +16,29 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: Column(
+    return  SafeArea(
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.volume_up_rounded, color: Colors.grey, size: 100,),
-            Text("translate sign to text", style: Theme.of(context).textTheme.displaySmall,)
+            Expanded(
+              child: GestureDetector(
+                child: Image.asset("lib/assets/images/tstt.png"),
+              ),
+            ),
+            Expanded(
+              child: GestureDetector(
+                onTap: (){
+                    Navigator.of(context).pushNamed("/translateSignToText");
+                  },
+                child: Image.asset("lib/assets/images/ttts.png"),
+              ),
+            )
+
           ],
-        )),
-        Expanded(child: Column(
-          children: [
-            Icon(Icons.remove_red_eye, color: Colors.grey, size: 100,),
-            Text("convert text to sign", style: Theme.of(context).textTheme.displaySmall,)
-          ],
-        ))
-      ],
+        ),
+      ),
     );
   }
 }

@@ -78,6 +78,8 @@ class _LandingScreenState extends State<LandingScreen> with TickerProviderStateM
                animationController.forward(from: 0);
               });
 
+            }else{
+              Navigator.of(context).pushReplacementNamed("/home");
             }
           },
           child: Stack(
@@ -87,7 +89,10 @@ class _LandingScreenState extends State<LandingScreen> with TickerProviderStateM
                 right: 10,
                 child: Row(
                   children: [
-                    TextButton(onPressed: (){}, child: const Text("Skip"))
+                    TextButton(onPressed: (){
+                      Navigator.of(context).pushReplacementNamed("/home");
+
+                    }, child: const Text("Skip"))
                   ],
                 ),
               ),
